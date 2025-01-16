@@ -34,7 +34,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex h-[15vh] w-full items-center justify-between bg-[#23232f] p-12 font-[Poppins] text-white">
+        <div className="flex h-[15vh] w-full items-center justify-between bg-[#23232f] p-12 font-[Poppins] text-white ">
             <div className="left flex">
                 <Link to="/">
                     <img
