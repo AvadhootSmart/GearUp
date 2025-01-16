@@ -34,7 +34,7 @@ const Home = () => {
                 <MobileLoader />
             </div>
             <div className="overflow-x-hidden hidden sm:block">
-                <PageLoader />
+                <PageLoader text={'GEARUP'} />
                 <div className="lg:block">
                     <div className="h-screen w-full bg-[#23232f]">
                         <HeroProduct cards={cardData} />

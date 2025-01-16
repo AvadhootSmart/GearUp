@@ -88,7 +88,6 @@ const HeroCard = ({
                         <div className="prodName px-20 text-left text-7xl font-bold tracking-wider text-white">
                             <h2 className="">
                                 <div className="categoryMask absolute h-20 w-1/4 bg-[#23232f]"></div>
-                                <span className=" ">{category}</span>-
                                 <div className="nameMask absolute z-0 h-[35vh] w-[30%] bg-[#23232f]"></div>
                                 <span>{name}</span>
                             </h2>

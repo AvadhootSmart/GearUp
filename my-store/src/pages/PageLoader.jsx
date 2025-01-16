@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
-const PageLoader = () => {
-    useGSAP(() => {
+const PageLoader = ({ text }) => {
+    useEffect(() => {
         gsap.fromTo(
             ".even",
             { y: 1000 },
-            { y: 0, duration: 1, stagger: 0.2, ease: "power1" },
+            { y: 0, duration: 1, stagger: 0.2, ease: "power1" }
         );
         gsap.fromTo(
             ".odd",
             { y: -1000 },
-            { y: 0, duration: 1, stagger: 0.2, ease: "power1" },
+            { y: 0, duration: 1, stagger: 0.2, ease: "power1" }
         );
 
         gsap.to(".wrapper", {
@@ -20,52 +19,27 @@ const PageLoader = () => {
             ease: "power1.inOut",
             delay: 1,
         });
-    });
+    }, []);
+
+    const renderText = () => {
+        return text.split("").map((char, index) => (
+            <div
+                key={index}
+                className={`${index % 2 === 0 ? "even" : "odd"} -space-y-8 leading-none`}
+            >
+                {Array(5)
+                    .fill(char)
+                    .map((c, i) => (
+                        <h1 key={i}>{c}</h1>
+                    ))}
+            </div>
+        ));
+    };
+
     return (
         <div className="wrapper z-50 absolute left-0 top-0 flex h-screen w-full items-center justify-center bg-zinc-900 text-[10rem] font-bold text-white">
-            <div className="flex h-[8.1rem] w-full items-center justify-center overflow-hidden  text-center">
-                <div className="even -space-y-8 leading-none">
-                    <h1>G</h1>
-                    <h1>G</h1>
-                    <h1>G</h1>
-                    <h1>G</h1>
-                    <h1>G</h1>
-                </div>
-                <div className="odd -space-y-8 leading-none">
-                    <h1>E</h1>
-                    <h1>E</h1>
-                    <h1>E</h1>
-                    <h1>E</h1>
-                    <h1>E</h1>
-                </div>
-                <div className="even -space-y-8 leading-none">
-                    <h1>A</h1>
-                    <h1>A</h1>
-                    <h1>A</h1>
-                    <h1>A</h1>
-                    <h1>A</h1>
-                </div>
-                <div className="odd -space-y-8 leading-none">
-                    <h1>R</h1>
-                    <h1>R</h1>
-                    <h1>R</h1>
-                    <h1>R</h1>
-                    <h1>R</h1>
-                </div>
-                <div className="even -space-y-8 leading-none">
-                    <h1>U</h1>
-                    <h1>U</h1>
-                    <h1>U</h1>
-                    <h1>U</h1>
-                    <h1>U</h1>
-                </div>
-                <div className="odd -space-y-8 leading-none">
-                    <h1>P</h1>
-                    <h1>P</h1>
-                    <h1>P</h1>
-                    <h1>P</h1>
-                    <h1>P</h1>
-                </div>
+            <div className="flex h-[8.1rem] w-full items-center justify-center overflow-hidden text-center">
+                {renderText()}
             </div>
         </div>
     );
