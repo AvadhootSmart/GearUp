@@ -8,7 +8,7 @@ const Footer = () => {
         return null;
     }
     return (
-        <>
+        <div className="hidden lg:block">
             <div className="flex min-h-[40vh] w-full justify-between bg-[#111117] p-10 text-xl text-white">
                 <div className="links flex gap-24 p-4">
                     <ul className="list flex flex-col gap-4 text-2xl">
@@ -49,7 +49,7 @@ const Footer = () => {
             <div className="copyright flex h-[10vh] items-center justify-center  border-y border-[#72748e] bg-[#111117] px-10 text-white">
                 <p>Copyright&copy; 2023, All rights reserved </p>
             </div>
-        </>
+        </div>
     );
 };
 

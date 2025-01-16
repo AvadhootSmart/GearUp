@@ -30,12 +30,12 @@ const Home = () => {
 
     return (
         <>
-            <div className="overflow-x-hidden">
+            <div className="sm:block lg:hidden">
+                <MobileLoader />
+            </div>
+            <div className="overflow-x-hidden hidden sm:block">
                 <PageLoader />
-                <div className="sm:block lg:hidden">
-                    <MobileLoader/>
-                </div>
-                <div>
+                <div className="lg:block">
                     <div className="h-screen w-full bg-[#23232f]">
                         <HeroProduct cards={cardData} />
                     </div>
