@@ -11,6 +11,7 @@ import MobileLoader from "../components/MobileLoader";
 const Home = () => {
     const [cardData, setCardData] = useState([{}]);
     const [featuredCards, setFeaturedCards] = useState([{}]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
@@ -24,6 +25,9 @@ const Home = () => {
             } catch (error) {
                 console.log("Error occurred while fetching data:", error);
             }
+            finally {
+                    setLoading(false);
+            }
         }
         fetchData();
     }, []);
@@ -34,7 +38,7 @@ const Home = () => {
                 <MobileLoader />
             </div>
             <div className="overflow-x-hidden hidden sm:block">
-                <PageLoader text={'GEARUP'} />
+                <PageLoader text={'GEARUP'} loading={loading} />
                 <div className="lg:block">
                     <div className="h-screen w-full bg-[#23232f]">
                         <HeroProduct cards={cardData} />

@@ -14,7 +14,6 @@ const HeroProduct = ({ cards }) => {
   };
   return (
     <>
-      {console.log(cards)}
       <Carousel
         showStatus={false}
         renderArrowPrev={(onClickHandler, hasPrev, label) =>
